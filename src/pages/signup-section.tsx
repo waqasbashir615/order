@@ -9,6 +9,7 @@ import { Truck, Users, Zap, Shield, ArrowRight, Star, Menu, Store, ShoppingCart,
 import IMAGES from "@/assets/images";
 import { ApplicationForm } from "../components/main-pages/application-form";
 import { Link } from "react-router-dom";
+import BgShap from "@/components/main-pages/bg-shap";
 
 export default function MXDriveSignup() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -121,7 +122,7 @@ export default function MXDriveSignup() {
           </div>
         </div>
       </header>
-
+      <BgShap />
       {/* Hero Section - Modern Design */}
       <section className="relative bg-gradient-to-br from-gray-50 via-white to-orange-50 py-20">
         <div className="max-w-7xl mx-auto px-4">

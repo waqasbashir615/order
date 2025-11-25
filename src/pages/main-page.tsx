@@ -19,6 +19,7 @@ const Mainpage = () => {
     <div className="w-full ">
       <div className="min-h-screen bg-white">
         <HeaderNavbar />
+       
         <HeroSection />
         <Services />
         <Features />

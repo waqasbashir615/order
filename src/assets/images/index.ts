@@ -13,6 +13,7 @@ import del5 from "./del-5.png";
 import del7 from "./del-7.jpeg";
 import del9 from "./del-9.jpg";
 import del10 from "./del-10.png";
+import del15 from "./del-15.png";
 import mxdriverlogo from "./mxdriver-logo.png";
 
 
@@ -37,6 +38,7 @@ const IMAGES: ImageMap = {
   DEL7: del7,
   DEL9: del9,
   DEL10: del10,
+  DEL15: del15,
   MXDRIVERLOGO: mxdriverlogo,  
   LOGOBGWITHOUT: logobgwithout,
 };
