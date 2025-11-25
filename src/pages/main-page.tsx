@@ -25,7 +25,7 @@ const Mainpage = () => {
         <Tracking />
         <VisualRequirements />
         <MxRiderPromo />
-           <DriverExtras/>                                                                                           
+        <DriverExtras />
         <Testimonials />
         {/* <ContactSection /> */}
         <RiderFAQ />

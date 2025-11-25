@@ -3,28 +3,15 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Truck, Users, Zap, Shield, ArrowRight, Star, Menu, Store, ShoppingCart, Clock, TrendingUp } from "lucide-react";
 import IMAGES from "@/assets/images";
+import { ApplicationForm } from "../components/main-pages/application-form";
+import { Link } from "react-router-dom";
 
 export default function MXDriveSignup() {
-  const [formData, setFormData] = useState({
-    businessName: "",
-    businessAddress: "",
-    businessType: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-  });
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const businessTypes = ["Restaurant", "Grocery Store", "Convenience Store", "Cafe", "Bakery", "Other"];
 
   const quickStats = [
     { icon: Users, value: "90K+", label: "Active Partners" },
@@ -69,93 +56,20 @@ export default function MXDriveSignup() {
     }
   ];
 
-  const ApplicationForm = () => (
-    <div className="space-y-6">
-      <div className="text-center mb-6">
-        <h3 className="text-2xl font-bold text-[#E3B24A] mb-2">Start Your Journey</h3>
-        <p className="text-gray-600">Join thousands of successful businesses</p>
-      </div>
-
-      <div className="space-y-4">
-        <div className="space-y-3">
-          <Label className="font-semibold text-gray-900">Business Information</Label>
-          <Input
-            placeholder="Business name"
-            value={formData.businessName}
-            onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-            className="focus:border-[#E3B24A]"
-          />
-          <Input
-            placeholder="Business address"
-            value={formData.businessAddress}
-            onChange={(e) => setFormData({ ...formData, businessAddress: e.target.value })}
-            className="focus:border-[#E3B24A]"
-          />
-          <Select value={formData.businessType} onValueChange={(value) => setFormData({ ...formData, businessType: value })}>
-            <SelectTrigger className="focus:border-[#E3B24A]">
-              <SelectValue placeholder="Business type" />
-            </SelectTrigger>
-            <SelectContent className="bg-white">
-              {businessTypes.map((type) => (
-                <SelectItem key={type} value={type}>{type}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="space-y-3">
-          <Label className="font-semibold text-gray-900">Contact Details</Label>
-          <div className="grid sm:grid-cols-2 gap-3">
-            <Input
-              placeholder="First name"
-              value={formData.firstName}
-              onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-              className="focus:border-[#E3B24A]"
-            />
-            <Input
-              placeholder="Last name"
-              value={formData.lastName}
-              onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-              className="focus:border-[#E3B24A]"
-            />
-          </div>
-          <Input
-            type="email"
-            placeholder="Email address"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="focus:border-[#E3B24A]"
-          />
-          <Input
-            placeholder="Phone number"
-            value={formData.phone}
-            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="focus:border-[#E3B24A]"
-          />
-        </div>
-      </div>
-
-      <Button className="w-full bg-[#E3B24A] hover:bg-[#d4a53f] text-white h-12 text-lg font-semibold shadow-lg">
-        Submit your Application <ArrowRight className="ml-2 h-5 w-5" />
-      </Button>
-    </div>
-  );
-
   return (
     <div className="min-h-screen bg-white">
       {/* Modern Header */}
       <header className="border-b border-gray-100 bg-white/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-end gap-3">
-              <div className="w-8 h-8  rounded-xl flex items-center justify-center">
-                {/* <Rocket className="h-6 w-6 text-white" /> */}
-                  <img src={IMAGES.LOGOBGWITHOUT} alt="" />
+            <Link to="/" className="flex items-end gap-1">
+              <div className="w-8 h-8 rounded-xl flex items-center justify-center">
+                <img src={IMAGES.LOGOBGWITHOUT} alt="MXDrive Logo" className="w-6 h-6 object-contain" />
               </div>
-              <div className="text-3xl item font-bold bg-gradient-to-r from-[#E3B24A] to-[#d4a53f] bg-clip-text text-transparent">
+              <div className="text-3xl font-bold bg-gradient-to-r from-[#E3B24A] to-[#d4a53f] bg-clip-text text-transparent">
                 MXDrive
               </div>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden sm:flex gap-3">
@@ -165,13 +79,11 @@ export default function MXDriveSignup() {
                     Start Now
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-md bg-white">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl text-center text-[#E3B24A]">
-                      Get Started with MXDrive
-                    </DialogTitle>
-                  </DialogHeader>
-                  <ApplicationForm />
+                <DialogContent className="max-w-md bg-white p-6">
+                  <ApplicationForm
+                    title="Start Your Journey"
+                    description="Join thousands of successful businesses"
+                  />
                 </DialogContent>
               </Dialog>
             </div>
@@ -195,8 +107,11 @@ export default function MXDriveSignup() {
                           Start Now
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-[95vw] w-[95vw]">
-                        <ApplicationForm />
+                      <DialogContent className="max-w-[95vw] w-[95vw] bg-white p-6">
+                        <ApplicationForm
+                          title="Start Your Journey"
+                          description="Join thousands of successful businesses"
+                        />
                       </DialogContent>
                     </Dialog>
                   </div>
@@ -245,8 +160,11 @@ export default function MXDriveSignup() {
                   Start Your Success Story <ArrowRight className="ml-3 h-5 w-5" />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-md bg-white">
-                <ApplicationForm />
+              <DialogContent className="max-w-md bg-white p-6">
+                <ApplicationForm
+                  title="Start Your Success Story"
+                  description="Begin your journey with MXDrive today"
+                />
               </DialogContent>
             </Dialog>
           </div>
@@ -356,8 +274,11 @@ export default function MXDriveSignup() {
                 Start Your Journey Today <ArrowRight className="ml-3 h-5 w-5" />
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-md bg-white">
-              <ApplicationForm />
+            <DialogContent className="max-w-md bg-white p-6">
+              <ApplicationForm
+                title="Start Your Journey Today"
+                description="Transform your business with MXDrive"
+              />
             </DialogContent>
           </Dialog>
         </div>
