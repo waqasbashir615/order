@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@keyframes slide-corner {
+  0% { transform: translate(0,0); opacity: 1; }
+  100% { transform: translate(-10px,-10px); opacity: 0; }
+}
+.hide-scrollbar {
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; 
+}
+
+
+/* Global Scrollbar Style */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #f3f3f3;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #AA1F27, #C52932);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #FFBC0D, #fab513);
+}
