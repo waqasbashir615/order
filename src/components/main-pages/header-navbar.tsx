@@ -20,10 +20,10 @@ const HeaderSection = () => {
   // Define navigation links with their routes
   const navLinks = [
     { name: 'home', path: '/' },
-    { name: 'services', path: '/services' },
+    { name: 'services', path: '/services-page' },
     { name: 'Sign up', path: '/signup-section' },
     { name: 'Support', path: '/help-center' },
-    { name: 'contact', path: '/contact' }
+    { name: 'contact', path: '/contact-page' }
   ];
 
   // Check if a link is active
